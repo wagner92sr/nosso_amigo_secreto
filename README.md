@@ -5,7 +5,7 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 2.5
 
 * System dependencies
 
@@ -20,5 +20,6 @@ Things you may want to cover:
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
-
+  Execute o comando docker-compose build para que a aplicação execute o bundle install
+  Execute o comando docker-compose up para iniciar a aplicação
 * ...
