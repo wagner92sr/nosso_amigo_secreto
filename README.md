@@ -12,8 +12,10 @@ Things you may want to cover:
 * Configuration
 
 * Database creation
+   docker-compose run --rm website bundle exec rake db:create
 
 * Database initialization
+   docker-compose run --rm website bundle exec rake db:migrate
 
 * How to run the test suite
 
