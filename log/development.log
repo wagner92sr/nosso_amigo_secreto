@@ -489,3 +489,50 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 120ms (Views: 116.9ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/sidekiq" for 172.19.0.1 at 2018-01-27 17:33:58 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/sidekiq/stylesheets/bootstrap.css" for 172.19.0.1 at 2018-01-27 17:33:58 +0000
+Started GET "/sidekiq/stylesheets/application.css" for 172.19.0.1 at 2018-01-27 17:33:58 +0000
+Started GET "/sidekiq/javascripts/application.js" for 172.19.0.1 at 2018-01-27 17:33:58 +0000
+Started GET "/sidekiq/javascripts/dashboard.js" for 172.19.0.1 at 2018-01-27 17:33:58 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/images/status.png" for 172.19.0.1 at 2018-01-27 17:33:58 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/images/favicon.ico" for 172.19.0.1 at 2018-01-27 17:33:58 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/busy" for 172.19.0.1 at 2018-01-27 17:34:03 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/queues" for 172.19.0.1 at 2018-01-27 17:34:05 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/retries" for 172.19.0.1 at 2018-01-27 17:34:06 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/scheduled" for 172.19.0.1 at 2018-01-27 17:34:06 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/morgue" for 172.19.0.1 at 2018-01-27 17:34:06 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/" for 172.19.0.1 at 2018-01-27 17:34:07 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/" for 172.19.0.1 at 2018-01-27 17:34:08 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/" for 172.19.0.1 at 2018-01-27 17:34:09 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/" for 172.19.0.1 at 2018-01-27 17:34:09 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/" for 172.19.0.1 at 2018-01-27 17:34:10 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/stats" for 172.19.0.1 at 2018-01-27 17:34:15 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/stats" for 172.19.0.1 at 2018-01-27 17:34:20 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/stats" for 172.19.0.1 at 2018-01-27 17:34:25 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/stats" for 172.19.0.1 at 2018-01-27 17:34:30 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/stats" for 172.19.0.1 at 2018-01-27 17:34:35 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/stats" for 172.19.0.1 at 2018-01-27 17:34:40 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
