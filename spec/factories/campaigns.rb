@@ -1,8 +1,7 @@
 FactoryBot.define do
-  factory :campaign do
-    title "MyString"
-    description "MyText"
-    user nil
-    status 1
-  end
+ factory :campaign do
+   title         { FFaker::Lorem.word }
+   description   { FFaker::Lorem.sentence }
+   user
+ end
 end

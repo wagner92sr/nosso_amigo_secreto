@@ -1,9 +1,7 @@
 FactoryBot.define do
-  factory :member do
-    name "MyString"
-    email "MyString"
-    campaign nil
-    open false
-    token "MyString"
-  end
+ factory :member do
+   name         { FFaker::Lorem.word }
+   email        { FFaker::Internet.email }
+   campaign
+ end
 end
