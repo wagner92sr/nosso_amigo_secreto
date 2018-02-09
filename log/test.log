@@ -1,0 +1,203 @@
+  [1m[35m (474.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "nosso_amigo_secreto_test"[0m
+  [1m[35m (1121.4ms)[0m  [1m[35mCREATE DATABASE "nosso_amigo_secreto_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (108.4ms)[0m  [1m[35mCREATE TABLE "campaigns" ("id" serial primary key, "title" character varying, "description" text, "user_id" integer, "status" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "event_date" timestamp, "event_hour" character varying, "location" character varying)[0m
+  [1m[35m (60.2ms)[0m  [1m[35mCREATE  INDEX  "index_campaigns_on_user_id" ON "campaigns" USING btree ("user_id")[0m
+  [1m[35m (96.4ms)[0m  [1m[35mCREATE TABLE "members" ("id" serial primary key, "name" character varying, "email" character varying, "campaign_id" integer, "open" boolean, "token" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (60.3ms)[0m  [1m[35mCREATE  INDEX  "index_members_on_campaign_id" ON "members" USING btree ("campaign_id")[0m
+  [1m[35m (115.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "name" character varying NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (60.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (60.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")[0m
+  [1m[35m (9.7ms)[0m  [1m[35mALTER TABLE "campaigns" ADD CONSTRAINT "fk_rails_9eb8249bf2"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (21.1ms)[0m  [1m[35mALTER TABLE "members" ADD CONSTRAINT "fk_rails_0d29a61b4b"
+FOREIGN KEY ("campaign_id")
+  REFERENCES "campaigns" ("id")
+[0m
+  [1m[35m (108.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (19.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180207224201)[0m
+  [1m[35m (21.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180207222003),
+(20180207221937),
+(20180125012522);
+
+[0m
+  [1m[35m (138.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2018-02-09 01:42:13.410342"], ["updated_at", "2018-02-09 01:42:13.410342"]]
+  [1m[35m (13.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (1.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "apryl.effertz@bartell.biz"], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "apryl.effertz@bartell.biz"], ["encrypted_password", "$2a$04$enuhAg9bJnj3vn9b33QiWeAwXSNWRu8LCVhym7pWOLrA2kxs/.vXK"], ["name", "id"], ["created_at", "2018-02-09 01:42:13.985694"], ["updated_at", "2018-02-09 01:42:13.985694"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "campaigns" ("title", "description", "user_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "cumque"], ["description", "Sunt et praesentium enim autem aspernatur."], ["user_id", 1], ["status", 0], ["created_at", "2018-02-09 01:42:14.003251"], ["updated_at", "2018-02-09 01:42:14.003251"]]
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "id"], ["email", "apryl.effertz@bartell.biz"], ["campaign_id", 1], ["created_at", "2018-02-09 01:42:14.118041"], ["updated_at", "2018-02-09 01:42:14.118041"]]
+  [1m[35mSQL (1.1ms)[0m  [1m[33mUPDATE "campaigns" SET "id" = $1, "title" = $2, "description" = $3, "user_id" = $4, "status" = $5, "created_at" = $6, "updated_at" = $7 WHERE "campaigns"."id" = $8[0m  [["id", 1], ["title", "cumque"], ["description", "Sunt et praesentium enim autem aspernatur."], ["user_id", 1], ["status", 0], ["created_at", "2018-02-09 01:42:14.003251"], ["updated_at", "2018-02-09 01:42:14.003251"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "sit"], ["email", "jayson@jacobs.com"], ["campaign_id", 1], ["created_at", "2018-02-09 01:42:14.129773"], ["updated_at", "2018-02-09 01:42:14.129773"]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "beatae"], ["email", "antonia_berge@goyettehilll.us"], ["campaign_id", 1], ["created_at", "2018-02-09 01:42:14.136258"], ["updated_at", "2018-02-09 01:42:14.136258"]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "explicabo"], ["email", "constance.beer@waelchi.com"], ["campaign_id", 1], ["created_at", "2018-02-09 01:42:14.142620"], ["updated_at", "2018-02-09 01:42:14.142620"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCampaign Load (0.5ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 1]]
+  [1m[36mMember Load (0.6ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 1]]
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bee.cartwright@homenick.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "bee.cartwright@homenick.com"], ["encrypted_password", "$2a$04$XAH8PC6fahnYRs3c1oBGGeFsJqNIdV7fiQ9lrHKJxb2PCzb5BER32"], ["name", "iusto"], ["created_at", "2018-02-09 01:42:14.208783"], ["updated_at", "2018-02-09 01:42:14.208783"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "campaigns" ("title", "description", "user_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "sint"], ["description", "Cumque molestiae consectetur architecto sed quibusdam sapiente tempora."], ["user_id", 2], ["status", 0], ["created_at", "2018-02-09 01:42:14.212706"], ["updated_at", "2018-02-09 01:42:14.212706"]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "iusto"], ["email", "bee.cartwright@homenick.com"], ["campaign_id", 2], ["created_at", "2018-02-09 01:42:14.218274"], ["updated_at", "2018-02-09 01:42:14.218274"]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "campaigns" SET "id" = $1, "title" = $2, "description" = $3, "user_id" = $4, "status" = $5, "created_at" = $6, "updated_at" = $7 WHERE "campaigns"."id" = $8[0m  [["id", 2], ["title", "sint"], ["description", "Cumque molestiae consectetur architecto sed quibusdam sapiente tempora."], ["user_id", 2], ["status", 0], ["created_at", "2018-02-09 01:42:14.212706"], ["updated_at", "2018-02-09 01:42:14.212706"], ["id", 2]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "assumenda"], ["email", "lisa@dubuque.info"], ["campaign_id", 2], ["created_at", "2018-02-09 01:42:14.225819"], ["updated_at", "2018-02-09 01:42:14.225819"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "tempora"], ["email", "ima@botsford.name"], ["campaign_id", 2], ["created_at", "2018-02-09 01:42:14.231143"], ["updated_at", "2018-02-09 01:42:14.231143"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "dolor"], ["email", "roseann.wisoky@kihn.co.uk"], ["campaign_id", 2], ["created_at", "2018-02-09 01:42:14.235677"], ["updated_at", "2018-02-09 01:42:14.235677"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCampaign Load (0.3ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 2]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 2]]
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 2]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 2]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 2]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 2]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 2]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "matt_kuphal@pouros.info"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "matt_kuphal@pouros.info"], ["encrypted_password", "$2a$04$22zSiVn272JZGebrB3NvY.4157e6a2CNk.qixBqGv32lrdQRD0092"], ["name", "maxime"], ["created_at", "2018-02-09 01:42:14.258273"], ["updated_at", "2018-02-09 01:42:14.258273"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "campaigns" ("title", "description", "user_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "beatae"], ["description", "Rerum voluptas qui molestias molestiae ea reiciendis."], ["user_id", 3], ["status", 0], ["created_at", "2018-02-09 01:42:14.261338"], ["updated_at", "2018-02-09 01:42:14.261338"]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "maxime"], ["email", "matt_kuphal@pouros.info"], ["campaign_id", 3], ["created_at", "2018-02-09 01:42:14.265749"], ["updated_at", "2018-02-09 01:42:14.265749"]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "campaigns" SET "id" = $1, "title" = $2, "description" = $3, "user_id" = $4, "status" = $5, "created_at" = $6, "updated_at" = $7 WHERE "campaigns"."id" = $8[0m  [["id", 3], ["title", "beatae"], ["description", "Rerum voluptas qui molestias molestiae ea reiciendis."], ["user_id", 3], ["status", 0], ["created_at", "2018-02-09 01:42:14.261338"], ["updated_at", "2018-02-09 01:42:14.261338"], ["id", 3]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "et"], ["email", "trisha@reingerlockman.com"], ["campaign_id", 3], ["created_at", "2018-02-09 01:42:14.271645"], ["updated_at", "2018-02-09 01:42:14.271645"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "accusamus"], ["email", "alice@mcclure.info"], ["campaign_id", 3], ["created_at", "2018-02-09 01:42:14.275570"], ["updated_at", "2018-02-09 01:42:14.275570"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "et"], ["email", "luz.harris@bauch.com"], ["campaign_id", 3], ["created_at", "2018-02-09 01:42:14.279357"], ["updated_at", "2018-02-09 01:42:14.279357"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCampaign Load (0.3ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 3]]
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 3]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lonny@mcglynnherzog.info"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "lonny@mcglynnherzog.info"], ["encrypted_password", "$2a$04$pg6hKi5as.gHfwrJDaJO0uJ8wvjFDAhl41.4q82oxtGaoRESIFg.."], ["name", "tenetur"], ["created_at", "2018-02-09 01:42:14.299422"], ["updated_at", "2018-02-09 01:42:14.299422"]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "campaigns" ("title", "description", "user_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "officia"], ["description", "Earum iure molestiae amet atque."], ["user_id", 4], ["status", 0], ["created_at", "2018-02-09 01:42:14.304995"], ["updated_at", "2018-02-09 01:42:14.304995"]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "tenetur"], ["email", "lonny@mcglynnherzog.info"], ["campaign_id", 4], ["created_at", "2018-02-09 01:42:14.315100"], ["updated_at", "2018-02-09 01:42:14.315100"]]
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "campaigns" SET "id" = $1, "title" = $2, "description" = $3, "user_id" = $4, "status" = $5, "created_at" = $6, "updated_at" = $7 WHERE "campaigns"."id" = $8[0m  [["id", 4], ["title", "officia"], ["description", "Earum iure molestiae amet atque."], ["user_id", 4], ["status", 0], ["created_at", "2018-02-09 01:42:14.304995"], ["updated_at", "2018-02-09 01:42:14.304995"], ["id", 4]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "qui"], ["email", "keith@brakus.com"], ["campaign_id", 4], ["created_at", "2018-02-09 01:42:14.326849"], ["updated_at", "2018-02-09 01:42:14.326849"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "odio"], ["email", "charis@mayert.info"], ["campaign_id", 4], ["created_at", "2018-02-09 01:42:14.333908"], ["updated_at", "2018-02-09 01:42:14.333908"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "asperiores"], ["email", "vera_williamson@monahan.biz"], ["campaign_id", 4], ["created_at", "2018-02-09 01:42:14.340841"], ["updated_at", "2018-02-09 01:42:14.340841"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCampaign Load (0.5ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 4]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 4]]
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 4]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 4]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 4]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 4]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 4]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 4]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cinthia@zulauf.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "cinthia@zulauf.com"], ["encrypted_password", "$2a$04$3SUHhwbjm504/L.7Vmj9zu62arlVljyV9NRAvijOe6ZVrXfPCfQ4y"], ["name", "eligendi"], ["created_at", "2018-02-09 01:42:14.371583"], ["updated_at", "2018-02-09 01:42:14.371583"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "campaigns" ("title", "description", "user_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "nostrum"], ["description", "Alias voluptas labore in incidunt quia saepe."], ["user_id", 5], ["status", 0], ["created_at", "2018-02-09 01:42:14.375592"], ["updated_at", "2018-02-09 01:42:14.375592"]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "eligendi"], ["email", "cinthia@zulauf.com"], ["campaign_id", 5], ["created_at", "2018-02-09 01:42:14.381369"], ["updated_at", "2018-02-09 01:42:14.381369"]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "campaigns" SET "id" = $1, "title" = $2, "description" = $3, "user_id" = $4, "status" = $5, "created_at" = $6, "updated_at" = $7 WHERE "campaigns"."id" = $8[0m  [["id", 5], ["title", "nostrum"], ["description", "Alias voluptas labore in incidunt quia saepe."], ["user_id", 5], ["status", 0], ["created_at", "2018-02-09 01:42:14.375592"], ["updated_at", "2018-02-09 01:42:14.375592"], ["id", 5]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "repellat"], ["email", "alesia_marvin@jacobi.co.uk"], ["campaign_id", 5], ["created_at", "2018-02-09 01:42:14.390037"], ["updated_at", "2018-02-09 01:42:14.390037"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "consequatur"], ["email", "napoleon@lehner.com"], ["campaign_id", 5], ["created_at", "2018-02-09 01:42:14.396564"], ["updated_at", "2018-02-09 01:42:14.396564"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "temporibus"], ["email", "marva@adams.name"], ["campaign_id", 5], ["created_at", "2018-02-09 01:42:14.402272"], ["updated_at", "2018-02-09 01:42:14.402272"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCampaign Load (0.4ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 5]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 5]]
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 5]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 5]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 5]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 5]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 5]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 5]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 5]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 5]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 5]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 5]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 5]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 5]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "thomas@leschpfeffer.info"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "thomas@leschpfeffer.info"], ["encrypted_password", "$2a$04$wPDWiAqdID5WgD3Lkp.AwugXbgWPmID5SlquFgv4B1G5lwC6VyA.m"], ["name", "tempore"], ["created_at", "2018-02-09 01:42:14.438613"], ["updated_at", "2018-02-09 01:42:14.438613"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "campaigns" ("title", "description", "user_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "officiis"], ["description", "Autem dolore et mollitia enim dolorum enim."], ["user_id", 6], ["status", 0], ["created_at", "2018-02-09 01:42:14.442007"], ["updated_at", "2018-02-09 01:42:14.442007"]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "tempore"], ["email", "thomas@leschpfeffer.info"], ["campaign_id", 6], ["created_at", "2018-02-09 01:42:14.447479"], ["updated_at", "2018-02-09 01:42:14.447479"]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "campaigns" SET "id" = $1, "title" = $2, "description" = $3, "user_id" = $4, "status" = $5, "created_at" = $6, "updated_at" = $7 WHERE "campaigns"."id" = $8[0m  [["id", 6], ["title", "officiis"], ["description", "Autem dolore et mollitia enim dolorum enim."], ["user_id", 6], ["status", 0], ["created_at", "2018-02-09 01:42:14.442007"], ["updated_at", "2018-02-09 01:42:14.442007"], ["id", 6]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "voluptates"], ["email", "vanesa_kemmer@bashirian.ca"], ["campaign_id", 6], ["created_at", "2018-02-09 01:42:14.455219"], ["updated_at", "2018-02-09 01:42:14.455219"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCampaign Load (0.3ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 6]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
