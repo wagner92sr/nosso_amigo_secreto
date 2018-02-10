@@ -60,10 +60,12 @@ RSpec.describe CampaignsController, type: :controller do
       expect(response).to redirect_to("/campaigns/#{Campaign.last.id}")
     end
 
-    it "Create campaign with right attributes" do
+
+
+    it "Create campaign with initial params" do
       expect(Campaign.last.user).to eql(@current_user)
-      expect(Campaign.last.title).to eql(@campaign_attributes[:title])
-      expect(Campaign.last.description).to eql(@campaign_attributes[:description])
+      expect(Campaign.last.title).to eql("Nova Campanha")
+      expect(Campaign.last.description).to eql("Descreva sua campanha...")
       expect(Campaign.last.status).to eql('pending')
     end
 
