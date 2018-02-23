@@ -1053,3 +1053,192 @@ Completed 200 OK in 3404ms (Views: 3391.5ms | ActiveRecord: 0.0ms)
   [1m[36mCampaign Load (1.9ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 69], ["LIMIT", 1]]
   [1m[36mCampaign Load (1.4ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
   [1m[36mCampaign Load (1.0ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Started GET "/" for 172.19.0.1 at 2018-02-23 02:17:48 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (28.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (3.7ms)
+  [1m[36mCampaign Load (106.6ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 82], ["LIMIT", 1]]
+  [1m[36mCampaign Load (106.0ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 69], ["LIMIT", 1]]
+  [1m[36mCampaign Load (105.5ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 95], ["LIMIT", 1]]
+  [1m[36mCampaign Load (103.9ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mCampaign Load (105.3ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 401 Unauthorized in 3698ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (File to import not found or unreadable: shared/_footer.
+Load paths:
+  /nosso_amigo_secreto/app/assets/config
+  /nosso_amigo_secreto/app/assets/images
+  /nosso_amigo_secreto/app/assets/javascripts
+  /nosso_amigo_secreto/app/assets/stylesheets
+  /nosso_amigo_secreto/vendor/assets/javascripts
+  /nosso_amigo_secreto/vendor/assets/stylesheets
+  /box/gems/material_icons-2.2.1/app/assets/fonts
+  /box/gems/material_icons-2.2.1/app/assets/stylesheets
+  /box/gems/materialize-sass-0.100.2/app/assets/fonts
+  /box/gems/materialize-sass-0.100.2/app/assets/javascripts
+  /box/gems/materialize-sass-0.100.2/app/assets/stylesheets
+  /box/gems/jquery-rails-4.3.1/vendor/assets/javascripts
+  /box/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /box/gems/actioncable-5.0.6/lib/assets/compiled
+  /box/gems/turbolinks-source-5.1.0/lib/assets/javascripts
+  /box/gems/materialize-sass-0.100.2/app/assets/stylesheets
+  /box/gems/materialize-sass-0.100.2/app/assets/javascripts
+  /box/gems/materialize-sass-0.100.2/app/assets/fonts
+  /box/gems/materialize-sass-0.100.2/app/assets/images
+  /box/gems/materialize-sass-0.100.2/app/assets/stylesheets):
+    4:     <title>NossoAmigoSecreto</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:     <%= favicon_link_tag %>
+   10:   </head>
+  
+app/assets/stylesheets/application.scss:4
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___3422081085020553683_29263740'
+  Rendering /box/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /box/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /box/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (11.7ms)
+  Rendering /box/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /box/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.4ms)
+  Rendering /box/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /box/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /box/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (47.1ms)
+Started GET "/" for 172.19.0.1 at 2018-02-23 02:18:58 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.6ms)
+Completed 401 Unauthorized in 783ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (File to import not found or unreadable: shared/_footer.
+Load paths:
+  /nosso_amigo_secreto/app/assets/config
+  /nosso_amigo_secreto/app/assets/images
+  /nosso_amigo_secreto/app/assets/javascripts
+  /nosso_amigo_secreto/app/assets/stylesheets
+  /nosso_amigo_secreto/vendor/assets/javascripts
+  /nosso_amigo_secreto/vendor/assets/stylesheets
+  /box/gems/material_icons-2.2.1/app/assets/fonts
+  /box/gems/material_icons-2.2.1/app/assets/stylesheets
+  /box/gems/materialize-sass-0.100.2/app/assets/fonts
+  /box/gems/materialize-sass-0.100.2/app/assets/javascripts
+  /box/gems/materialize-sass-0.100.2/app/assets/stylesheets
+  /box/gems/jquery-rails-4.3.1/vendor/assets/javascripts
+  /box/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /box/gems/actioncable-5.0.6/lib/assets/compiled
+  /box/gems/turbolinks-source-5.1.0/lib/assets/javascripts
+  /box/gems/materialize-sass-0.100.2/app/assets/stylesheets
+  /box/gems/materialize-sass-0.100.2/app/assets/javascripts
+  /box/gems/materialize-sass-0.100.2/app/assets/fonts
+  /box/gems/materialize-sass-0.100.2/app/assets/images
+  /box/gems/materialize-sass-0.100.2/app/assets/stylesheets):
+    4:     <title>NossoAmigoSecreto</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:     <%= favicon_link_tag %>
+   10:   </head>
+  
+app/assets/stylesheets/application.scss:4
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___3422081085020553683_33336640'
+  Rendering /box/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /box/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /box/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (8.8ms)
+  Rendering /box/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /box/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendering /box/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /box/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /box/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (31.2ms)
+Started GET "/" for 172.19.0.1 at 2018-02-23 02:20:25 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (5.9ms)
+Completed 401 Unauthorized in 1202ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (File to import not found or unreadable: shared/_footer.
+Load paths:
+  /nosso_amigo_secreto/app/assets/config
+  /nosso_amigo_secreto/app/assets/images
+  /nosso_amigo_secreto/app/assets/javascripts
+  /nosso_amigo_secreto/app/assets/stylesheets
+  /nosso_amigo_secreto/vendor/assets/javascripts
+  /nosso_amigo_secreto/vendor/assets/stylesheets
+  /box/gems/material_icons-2.2.1/app/assets/fonts
+  /box/gems/material_icons-2.2.1/app/assets/stylesheets
+  /box/gems/materialize-sass-0.100.2/app/assets/fonts
+  /box/gems/materialize-sass-0.100.2/app/assets/javascripts
+  /box/gems/materialize-sass-0.100.2/app/assets/stylesheets
+  /box/gems/jquery-rails-4.3.1/vendor/assets/javascripts
+  /box/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /box/gems/actioncable-5.0.6/lib/assets/compiled
+  /box/gems/turbolinks-source-5.1.0/lib/assets/javascripts
+  /box/gems/materialize-sass-0.100.2/app/assets/stylesheets
+  /box/gems/materialize-sass-0.100.2/app/assets/javascripts
+  /box/gems/materialize-sass-0.100.2/app/assets/fonts
+  /box/gems/materialize-sass-0.100.2/app/assets/images
+  /box/gems/materialize-sass-0.100.2/app/assets/stylesheets):
+    4:     <title>NossoAmigoSecreto</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:     <%= favicon_link_tag %>
+   10:   </head>
+  
+app/assets/stylesheets/application.scss:4
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___1246047702125583533_25224940'
+  Rendering /box/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /box/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /box/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (10.8ms)
+  Rendering /box/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /box/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.3ms)
+  Rendering /box/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /box/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /box/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (67.2ms)
+  [1m[36mCampaign Load (26.1ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 95], ["LIMIT", 1]]
+  [1m[36mCampaign Load (28.8ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  [1m[36mCampaign Load (27.4ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mCampaign Load (28.2ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 82], ["LIMIT", 1]]
+  [1m[36mCampaign Load (27.4ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 69], ["LIMIT", 1]]
+Started GET "/" for 172.19.0.1 at 2018-02-23 02:21:48 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.6ms)
+  Rendered shared/_navbar.html.erb (8.0ms)
+  Rendered shared/_footer.html.erb (1.3ms)
+Completed 200 OK in 5969ms (Views: 5967.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 172.19.0.1 at 2018-02-23 02:23:10 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.5ms)
+  Rendered shared/_navbar.html.erb (1.0ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 143ms (Views: 141.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 172.19.0.1 at 2018-02-23 02:24:43 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (18.7ms)
+  Rendered shared/_navbar.html.erb (1.2ms)
+  Rendered shared/_footer.html.erb (0.9ms)
+Completed 200 OK in 321ms (Views: 291.2ms | ActiveRecord: 0.0ms)
+
+
